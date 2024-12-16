@@ -1,0 +1,5 @@
+--- COMPROBANTE DE PAGO_TARJETA ---
+Fecha: 15/12/2024
+Número de cuenta: 1234
+Detalles: Pago a tarjeta por $3000.0
+Saldo restante: $9500.0

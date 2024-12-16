@@ -1,0 +1,4 @@
+--- COMPROBANTE DE DEPOSITO ---
+Fecha: 15/12/2024
+Número de cuenta: 1234
+Detalles: Depósito por $4000
