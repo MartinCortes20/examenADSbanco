@@ -1,5 +1,0 @@
---- COMPROBANTE DE CONSULTA_MOVIMIENTOS ---
-Fecha: 15/12/2024
-Número de cuenta: 1234
-Detalles: Últimos movimientos:
-Retiro: -$300

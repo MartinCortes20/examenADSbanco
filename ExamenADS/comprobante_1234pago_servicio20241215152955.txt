@@ -1,4 +1,0 @@
---- COMPROBANTE DE PAGO_SERVICIO ---
-Fecha: 15/12/2024
-Número de cuenta: 1234
-Detalles: Pago de agua por $3000

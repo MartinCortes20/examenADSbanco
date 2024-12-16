@@ -4,10 +4,10 @@ import datetime
 
 # Datos estáticos (Cuentas de ejemplo que cree)
 cuentas = {
-    "1234": {"pin": "1111", "saldo": 5000, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 12500,"limite": 20000}},
-    "5678": {"pin": "2222", "saldo": 10000, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 8900,"limite": 25000}},
-    "7777": {"pin": "3456", "saldo": 4300, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 15000,"limite": 20000}},
-    "8989": {"pin": "8965", "saldo": 9700, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 1000,"limite": 5000}}
+    "1234": {"pin": "1111", "saldo": 5000, "intentos_fallidos": 0, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 12500, "limite": 20000}},
+    "5678": {"pin": "2222", "saldo": 10000, "intentos_fallidos": 0, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 8900, "limite": 25000}},
+    "7777": {"pin": "3456", "saldo": 4300, "intentos_fallidos": 0, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 15000, "limite": 20000}},
+    "8989": {"pin": "8965", "saldo": 9700, "intentos_fallidos": 0, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 1000, "limite": 5000}}
 }
 
 class Cajero(tk.Tk):
@@ -82,10 +82,27 @@ class Cajero(tk.Tk):
         self.cuenta_actual = self.entrada_cuenta.get()
         pin = self.entrada_pin.get()
         
-        if self.cuenta_actual in cuentas and cuentas[self.cuenta_actual]["pin"] == pin:
-            self.__show_menu()
+        if self.cuenta_actual in cuentas:
+            cuenta = cuentas[self.cuenta_actual]
+            
+            # Verificar si la cuenta está bloqueada
+            if cuenta["intentos_fallidos"] >= 3:
+                messagebox.showerror("Error", "La cuenta está bloqueada por múltiples intentos fallidos.")
+                return
+            
+            if cuenta["pin"] == pin:
+                cuenta["intentos_fallidos"] = 0  # Reiniciar intentos fallidos
+                self.__show_menu()
+            else:
+                cuenta["intentos_fallidos"] += 1
+                intentos_restantes = 3 - cuenta["intentos_fallidos"]
+                
+                if intentos_restantes > 0:
+                    messagebox.showerror("Error", f"PIN incorrecto. Intentos restantes: {intentos_restantes}")
+                else:
+                    messagebox.showerror("Error", "La cuenta ha sido bloqueada por múltiples intentos fallidos.")
         else:
-            messagebox.showerror("Error", "Cuenta o PIN incorrecto")
+            messagebox.showerror("Error", "Cuenta no encontrada")
             
     def __show_menu(self):
         self.frame_login.destroy()

@@ -1,4 +1,0 @@
---- COMPROBANTE DE RETIRO ---
-Fecha: 14/12/2024
-Número de cuenta: 5678
-Detalles: Retiraste $100. Saldo actual: $5900
