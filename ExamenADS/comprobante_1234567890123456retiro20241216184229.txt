@@ -1,0 +1,4 @@
+--- COMPROBANTE DE RETIRO ---
+Fecha: 16/12/2024
+Número de cuenta: 1234567890123456
+Detalles: Retiro por $300

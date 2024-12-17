@@ -1,0 +1,4 @@
+--- COMPROBANTE DE CONSULTA_SALDO ---
+Fecha: 16/12/2024
+Número de cuenta: 1234567890123456
+Detalles: Saldo actual: $5000
