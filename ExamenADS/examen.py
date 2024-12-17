@@ -461,11 +461,13 @@ import datetime
 
 # Datos estáticos (Cuentas de ejemplo que cree)
 cuentas = {
-    "1234": {"pin": "1111", "saldo": 5000, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 4000,"limite": 20000}},
-    "5678": {"pin": "2222", "saldo": 10000, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 8900,"limite": 25000}},
-    "7777": {"pin": "3456", "saldo": 4300, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 15000,"limite": 20000}},
-    "8989": {"pin": "8965", "saldo": 9700, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 1000,"limite": 5000}}
+    "1234567890123456": {"pin": "1111", "saldo": 5000, "intentos_fallidos": 0, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 12500, "limite": 20000}},
+    "5677777777777777": {"pin": "2222", "saldo": 10000, "intentos_fallidos": 0, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 8900, "limite": 25000}},
+    "7777654890243566": {"pin": "3456", "saldo": 4300, "intentos_fallidos": 0, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 15000, "limite": 20000}},
+    "8989776342627383": {"pin": "8965", "saldo": 9700, "intentos_fallidos": 0, "movimientos": [], "limite_diario": 5000, "retiros_hoy": 0, "tarjeta_credito": {"saldo": 1000, "limite": 5000}}
 }
+
+
 
 class Cajero(tk.Tk):
     def __init__(self):
